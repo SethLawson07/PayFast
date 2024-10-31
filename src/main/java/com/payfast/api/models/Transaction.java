@@ -3,6 +3,8 @@ package com.payfast.api.models;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.payfast.api.models.enums.TransactionType;
 
 import jakarta.persistence.*;
@@ -25,6 +27,10 @@ public class Transaction {
     private TransactionType transactionType;
 
     @Column(nullable = false)
+    private Boolean status = true;
+
+    @Column(nullable = false)
+    @CreationTimestamp
     private LocalDateTime createAt;
 
     @ManyToOne
